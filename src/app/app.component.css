@@ -58,4 +58,15 @@
 
   .left{
     align-items: left;
+    text-align: left;
   }
+
+  .text-inside-grid {
+    text-align: left;
+  }
+
+  .mat-grid-tile {
+    border: 1px solid red;
+    text-align: left;
+  }
+  
