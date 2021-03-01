@@ -9,6 +9,9 @@ import { MatTableModule } from '@angular/material/table';
 import { ImageViewComponent } from './image-view/image-view.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatCardModule } from '@angular/material/card';
+import { MatGridListModule } from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
     HttpClientModule,
     MatTableModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatCardModule,
+    MatGridListModule
   ],
   providers: [],
   bootstrap: [AppComponent]

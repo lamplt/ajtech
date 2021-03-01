@@ -13,7 +13,7 @@ import { ImageViewComponent } from './image-view/image-view.component';
 })
 export class AppComponent implements OnInit{
   displayedColumns: string[] = ['time', 'Image_40_s', 'Image_10_s_1', 'Image_10_s_2', 'Image_10_s_3', 'Image_10_s_4', 'action'];
-  //  ];
+  
   dataSource = new MatTableDataSource<Events>();
   agcsData : AGCSData;
   
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit{
         //console.log(JSON.stringify(this.agcsData));
         console.log("ARRAY: "+JSON.stringify(this.agcsData.Events));
         this.dataSource = new MatTableDataSource<Events>(this.agcsData.Events);
-        console.log("ARRAY: "+JSON.stringify(this.dataSource));
+        //console.log("ARRAY: "+JSON.stringify(this.dataSource));
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);

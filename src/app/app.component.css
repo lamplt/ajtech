@@ -55,3 +55,7 @@
   .zoom{
     cursor: zoom-in;
   }
+
+  .left{
+    align-items: left;
+  }
