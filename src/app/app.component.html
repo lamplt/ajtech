@@ -11,21 +11,21 @@
 
 <div class="content" role="main">
 
-  <h2> Analysis of {{agcsData.Header.EEG_filename}} EEG file </h2>
+  <h2 *ngIf="agcsData"> Analysis of {{agcsData.Header.EEG_filename}} EEG file </h2>
   <!--Header Section-->
   <div fxLayout="row" fxLayoutAlign="space-between center" > 
     <a class="zoom" (click)="openImage(agcsData.Header.Metric_1_image)">
       <img
         width="400"
         alt=""
-        [src]="agcsData.Header.Metric_1_image" 
+        [src]="agcsData?.Header.Metric_1_image" 
       />
     </a>
     <a class="zoom" (click)="openImage(agcsData.Header.Metric_2_image)">
       <img
         width="400"
         alt=""
-        [src]="agcsData.Header.Metric_2_image" 
+        [src]="agcsData?.Header.Metric_2_image" 
       />
     </a>
   </div>
@@ -106,15 +106,24 @@
         <th class="w-70" mat-header-cell *matHeaderCellDef> Seizure? </th>
         <td mat-cell *matCellDef="let row"> 
           
-          <mat-slide-toggle
+          <!-- <mat-slide-toggle
               class="example-margin"
               color="primary"
               [disabled]="!row.checked"
               [checked]="row.seizure"
-              (change)="onChange($event)"
+              (change)="onChange($event, row)"
               >
               Yes           
-          </mat-slide-toggle>
+          </mat-slide-toggle> -->
+
+          <mat-button-toggle-group 
+            [disabled]="!row.checked" 
+            (change)="onChange($event, row)"
+            [value]="row.value">
+            <mat-button-toggle value="Yes">Yes</mat-button-toggle>           
+            <mat-button-toggle value="No">No</mat-button-toggle>
+          </mat-button-toggle-group>
+          
         </td>
       </ng-container>
 
@@ -124,7 +133,7 @@
     <mat-toolbar>
       <mat-toolbar-row>
         <span class="example-spacer"></span>
-          <button>Update</button> 
+          <button mat-raised-button color="primary" (click)=removeNonSeizure()>Update</button> 
       </mat-toolbar-row>
     </mat-toolbar>
    
@@ -139,37 +148,25 @@
         <mat-grid-tile  > 
           <div class="text-inside-grid"  > 
             Total time EEG Data:                    
-            &nbsp;&nbsp;{{agcsData.Footer.EEG_total_time_seconds}} seconds 
+            &nbsp;&nbsp;{{agcsData?.Footer.EEG_total_time_seconds}} seconds 
           </div>
         </mat-grid-tile>
         <mat-grid-tile > 
           <div class="text-inside-grid" >           
             Percent of Record requiring review:                   
-              &nbsp;&nbsp;{{agcsData.Footer.Total_review_percent.toFixed(2)}}%           
+              &nbsp;&nbsp;{{agcsData?.Footer.Total_review_percent.toFixed(2)}}%           
           </div>
         </mat-grid-tile>
         <mat-grid-tile > 
           <div class="text-inside-grid" > 
             EEG to review:                     
-            &nbsp;&nbsp;{{agcsData.Footer.EEG_investigate_time_seconds}} seconds 
+            &nbsp;&nbsp;{{agcsData?.Footer.EEG_investigate_time_seconds}} seconds 
           </div>
-        </mat-grid-tile>
-        
+        </mat-grid-tile>       
 
         <mat-grid-tile>
-
         </mat-grid-tile>
       </mat-grid-list>
-      
-      <!-- <div fxLayout="row" fxLayoutAlign="space-between center" > 
-        <div >
-          <mat-card-subtitle>Total time EEG Data: </mat-card-subtitle> <p>{{agcsData.Footer.EEG_total_time_seconds}}</p>
-          <mat-card-subtitle>Time to review EEG: </mat-card-subtitle>
-        </div>
-        <div >
-          <mat-card-subtitle>Percentage of time spent: </mat-card-subtitle>
-        </div>
-      </div> -->
     </mat-card>
     
   </div>

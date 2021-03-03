@@ -1,16 +1,19 @@
 export class AGCSData{
     Header: Header;
-    Events: Events[];
+    Events: Event[];
     Footer: Footer;
 }
 
-export class Events{
+export class Event{
     time: number;
     Image_40_s: string;
     Image_10_s_1: string;
     Image_10_s_2: string;
     Image_10_s_3: string;
     Image_10_s_4: string;
+    checked:boolean;
+    seizure:boolean;
+    value:string;
 }
 
 export class Header{

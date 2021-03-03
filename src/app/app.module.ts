@@ -11,6 +11,10 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatToolbarModule } from '@angular/material/toolbar'; 
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import {MatButtonModule} from '@angular/material/button'; 
 
 
 @NgModule({
@@ -27,7 +31,11 @@ import { MatGridListModule } from '@angular/material/grid-list';
     MatDialogModule,
     MatSlideToggleModule,
     MatCardModule,
-    MatGridListModule
+    MatGridListModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    MatButtonToggleModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
