@@ -9,8 +9,6 @@
     <div class="spacer"></div>
 </div>
 
-
-
 <div class="content" role="main">
 
   <h2> Analysis of {{agcsData.Header.EEG_filename}} EEG file </h2>
@@ -37,29 +35,27 @@
 
     <table mat-table [dataSource]="dataSource">
       <ng-container matColumnDef="time">
-        <th class="w-150" mat-header-cell *matHeaderCellDef> Time </th>
-        <td mat-cell *matCellDef="let row"> {{row.time}} seconds</td>
-      </ng-container>
-
+        <th class="w-75" mat-header-cell *matHeaderCellDef> Time (seconds) </th>
+        <td mat-cell *matCellDef="let row"> {{row.time}}</td>
+      </ng-container> 
       <ng-container matColumnDef="Image_40_s">
-        <th class="w-150" mat-header-cell *matHeaderCellDef> EEG Signals +/-20s </th>
+        <th class="w-300" mat-header-cell *matHeaderCellDef> EEG Signals +/-20s </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="openImage(row.Image_40_s)">
+          <a (click)="processRow(row,row.Image_40_s)">
             <img
-              width="100"
+              width="290"
               alt=""
               [src]="row.Image_40_s" 
             />
-          </a>  
-            
+          </a>             
         </td>
       </ng-container>
       <ng-container matColumnDef="Image_10_s_1">
         <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 1 </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="openImage(row.Image_10_s_1)">
+          <a (click)="processRow(row,row.Image_10_s_1)">
             <img
-              width="80"
+              width="149"
               alt=""
               [src]="row.Image_10_s_1" 
             />
@@ -70,9 +66,9 @@
       <ng-container matColumnDef="Image_10_s_2">
         <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 2 </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="openImage(row.Image_10_s_2)">
+          <a (click)="processRow(row,row.Image_10_s_2)">
             <img
-              width="80"
+              width="149"
               alt=""
               [src]="row.Image_10_s_2" 
             />
@@ -83,22 +79,22 @@
       <ng-container matColumnDef="Image_10_s_3">
         <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 3 </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="openImage(row.Image_10_s_3)">
+          <a (click)="processRow(row,row.Image_10_s_3)">
             <img
-              width="80"
+              width="149"
               alt=""
               [src]="row.Image_10_s_3" 
             />
           </a>
         </td>
-      </ng-container>
+      </ng-container> 
 
       <ng-container matColumnDef="Image_10_s_4">
-        <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 4 </th>
+        <th class="w-175" mat-header-cell *matHeaderCellDef> 10s - 4 </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="openImage(row.Image_10_s_4)">
+          <a (click)="processRow(row,row.Image_10_s_4)">
             <img
-              width="80"
+              width="149"
               alt=""
               [src]="row.Image_10_s_4" 
             /> 
@@ -107,12 +103,17 @@
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <th  mat-header-cell *matHeaderCellDef> Seizure? </th>
+        <th class="w-70" mat-header-cell *matHeaderCellDef> Seizure? </th>
         <td mat-cell *matCellDef="let row"> 
+          
           <mat-slide-toggle
               class="example-margin"
-              color="warn"
-              >           
+              color="primary"
+              [disabled]="!row.checked"
+              [checked]="row.seizure"
+              (change)="onChange($event)"
+              >
+              Yes           
           </mat-slide-toggle>
         </td>
       </ng-container>
@@ -120,6 +121,13 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
     </table>
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <span class="example-spacer"></span>
+          <button>Update</button> 
+      </mat-toolbar-row>
+    </mat-toolbar>
+   
   </div>
 </div>
   <!--Footer Section-->
@@ -136,13 +144,13 @@
         </mat-grid-tile>
         <mat-grid-tile > 
           <div class="text-inside-grid" >           
-              Percentage of time spend reviewing:                   
+            Percent of Record requiring review:                   
               &nbsp;&nbsp;{{agcsData.Footer.Total_review_percent.toFixed(2)}}%           
           </div>
         </mat-grid-tile>
         <mat-grid-tile > 
           <div class="text-inside-grid" > 
-            Time to review EEG:                     
+            EEG to review:                     
             &nbsp;&nbsp;{{agcsData.Footer.EEG_investigate_time_seconds}} seconds 
           </div>
         </mat-grid-tile>

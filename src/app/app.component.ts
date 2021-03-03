@@ -4,6 +4,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { AGCSData, Events } from './agcs-data';
 import { MatDialog } from '@angular/material/dialog';
 import { ImageViewComponent } from './image-view/image-view.component';
+import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 
 
 @Component({
@@ -39,9 +40,14 @@ export class AppComponent implements OnInit{
     );
   }
 
+  processRow(row: Events, src:string){
+    console.log(JSON.stringify(row));
+    row.checked = true;
+    this.openImage(src);
+  }
+
   openImage(src:string){
     console.log(src);
-
     const dialogRef = this.dialog.open(
                         ImageViewComponent, 
                         {data: { source: src }}
@@ -51,6 +57,19 @@ export class AppComponent implements OnInit{
       console.log(`Dialog result: ${result}`);
     });
 
+  }
+
+  onChange(value: MatSlideToggleChange) {
+    const { checked } = value;
+    console.log("On Change ==========>");
+    console.log(value);
+
+    // this.fakeService.throwUp(checked).subscribe(
+    //   () => {},
+    //   () => {
+    //      setTimeout(() => this.isChecked = this.isCheckedInit, 0);
+    //   }
+    // );
   }
 
   
