@@ -39,8 +39,8 @@
     width: 100%;
   }
 
-  .w-75{
-    width: 75px;
+  .w-50{
+    width: 50px;
   }
 
   .w-100{
@@ -108,9 +108,9 @@
     color: #fff;
   }
 
-  mat-button-toggle-group {
+  /* mat-button-toggle-group {
     box-shadow: none;
-  }
+  } */
   
   mat-button-toggle {
       border: 1px rgba(0,0,0,0) solid !important;
@@ -120,20 +120,26 @@
   }
   
   mat-button-toggle:hover {
-      border: 1px #000 solid !important;
-      background-color:forestgreen !important;
+      border: 1px rgba(0,0,0,0) solid !important;
+      background-color:#7b1fa2 !important;
       
   }
   
   .mat-button-toggle-checked {
-      border: 1px #000 solid !important;
+      border: 1px rgba(0,0,0,0) solid !important;
       
-      background-color:forestgreen !important;
+      background-color:#7b1fa2 !important;
   }
   
   .mat-button-toggle-input {
       background-color: none !important;
       padding-left: 32px !important;
-  }
+  } 
 
+  .my-toggle-button{
+    width: 50px!important;
+    height: 50px!important;
+    min-width: unset!important;
+    min-height: unset!important;
+ }
   

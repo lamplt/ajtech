@@ -14,7 +14,8 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  displayedColumns: string[] = ['time', 'Image_40_s', 'Image_10_s_1', 'Image_10_s_2', 'Image_10_s_3', 'Image_10_s_4', 'action'];
+  displayedColumns: string[] = ['time', 'Image_40_s',  'action'];
+  //'Image_10_s_1', 'Image_10_s_2', 'Image_10_s_3', 'Image_10_s_4',
   
   dataSource = new MatTableDataSource<Event>();
   agcsData : AGCSData = null;
@@ -65,17 +66,24 @@ export class AppComponent implements OnInit{
     if(value.value==='Yes'){
       row.value = "Yes";
       row.seizure = true;
+      row.checked = true;
     }
-    else{
+    else if (value.value==='No'){
       row.value = "No";
       row.seizure = false;
+      row.checked = true;
+    }
+    else{
+      row.value = "?";
+      row.checked = false;
+      //row.seizure = true; //don't delete
     }
   }
 
   
   removeNonSeizure(){
    for(let row of this.agcsData.Events){
-     if(row.checked && !row.seizure){
+      if(row.checked && !row.seizure){
       const index = this.agcsData.Events.indexOf(row, 0);
       if (index > -1) {
         this.agcsData.Events.splice(index, 1);
