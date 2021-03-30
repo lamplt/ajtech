@@ -11,26 +11,7 @@
 
 <div class="content" role="main">
 
-  <!-- <h2 *ngIf="agcsData"> Analysis of {{agcsData.Header.EEG_filename}} EEG file </h2>
   
-  <div fxLayout="row" fxLayoutAlign="space-between center" > 
-    <a class="zoom" (click)="openImage(agcsData.Header.Metric_1_image)">
-      <img
-        width="400"
-        alt=""
-        [src]="agcsData?.Header.Metric_1_image" 
-      />
-    </a>
-    <a class="zoom" (click)="openImage(agcsData.Header.Metric_2_image)">
-      <img
-        width="400"
-        alt=""
-        [src]="agcsData?.Header.Metric_2_image" 
-      />
-    </a>
-  </div> -->
-
-  <!--Table-->
   <div class="mat-elevation-z8">
 
     <table mat-table [dataSource]="dataSource">
@@ -41,109 +22,46 @@
       <ng-container matColumnDef="Image_40_s">
         <th class="w-300" mat-header-cell *matHeaderCellDef> Potential Events </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="processRow(row,row.Image_40_s)">
+          <!-- (click)="processRow(row,row.Image_40_s)" -->
+          <a >
             <img
               width="900"
               height="320"
               alt=""
-              [src]="row.Image_40_s" 
+              [src]="row.Image_40_s"
+              usemap="#row.workmap" 
             />
+            <map name="row.workmap">
+              <a (click)="processRow(row,row.Image_40_s)"> 
+                <area shape="rect" coords="0,0,100,320" alt="Computer" href="#"> 
+              </a>
+              <a (click)="processRow(row,row.Image_10_s_1)"> 
+                <area shape="rect" coords="100,0,300,320" alt="Computer" href="#"> 
+              </a>
+              <a (click)="processRow(row,row.Image_10_s_2)"> 
+                <area shape="rect" coords="300,0,500,320" alt="Computer" href="#"> 
+              </a>
+              <a (click)="processRow(row,row.Image_10_s_3)"> 
+                <area shape="rect" coords="500,0,700,320" alt="Computer" href="#"> 
+              </a>
+              <a (click)="processRow(row,row.Image_10_s_4)">
+                <area shape="rect" coords="700,0,900,320" alt="Computer" href="#"> 
+              </a>
+              
+            </map>
           </a> 
-          <div fxLayout="row" fxLayoutAlign="space-between center" >
-          <div></div>
-          <div>
-            <button mat-mini-fab color="primary" (click)="processRow(row,row.Image_10_s_1)">
-              <mat-icon>zoom_in</mat-icon>
-            </button>
-          </div> 
-          <div>
-            <button mat-mini-fab color="primary" (click)="processRow(row,row.Image_10_s_2)">
-              <mat-icon>zoom_in</mat-icon>
-            </button>
-          </div> 
-          <div>
-            <button mat-mini-fab color="primary" (click)="processRow(row,row.Image_10_s_3)">
-              <mat-icon>zoom_in</mat-icon>
-            </button>
-          </div> 
-          <div>
-            <button mat-mini-fab color="primary" (click)="processRow(row,row.Image_10_s_4)">
-              <mat-icon>zoom_in</mat-icon>
-            </button>
-          </div>
-          <div></div>
-        </div>            
+                 
         </td>
       </ng-container>
-      <!-- <ng-container matColumnDef="Image_10_s_1">
-        <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 1 </th>
-        <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="processRow(row,row.Image_10_s_1)">
-            <img
-              width="149"
-              alt=""
-              [src]="row.Image_10_s_1" 
-            />
-          </a>
-        </td>
-      </ng-container> -->
-
-      <!-- <ng-container matColumnDef="Image_10_s_2">
-        <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 2 </th>
-        <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="processRow(row,row.Image_10_s_2)">
-            <img
-              width="149"
-              alt=""
-              [src]="row.Image_10_s_2" 
-            />
-          </a>
-        </td>
-      </ng-container>
-
-      <ng-container matColumnDef="Image_10_s_3">
-        <th class="w-150" mat-header-cell *matHeaderCellDef> 10s - 3 </th>
-        <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="processRow(row,row.Image_10_s_3)">
-            <img
-              width="149"
-              alt=""
-              [src]="row.Image_10_s_3" 
-            />
-          </a>
-        </td>
-      </ng-container> 
-
-      <ng-container matColumnDef="Image_10_s_4">
-        <th class="w-175" mat-header-cell *matHeaderCellDef> 10s - 4 </th>
-        <td class="zoom" mat-cell *matCellDef="let row"> 
-          <a (click)="processRow(row,row.Image_10_s_4)">
-            <img
-              width="149"
-              alt=""
-              [src]="row.Image_10_s_4" 
-            /> 
-          </a>
-        </td>
-      </ng-container> -->
+     
 
       <ng-container matColumnDef="action">
         <th mat-header-cell *matHeaderCellDef>  </th>
         <td mat-cell *matCellDef="let row"> 
-          
-          <!-- <mat-slide-toggle
-              class="example-margin"
-              color="primary"
-              [disabled]="!row.checked"
-              [checked]="row.seizure"
-              (change)="onChange($event, row)"
-              >
-              Yes           
-          </mat-slide-toggle> -->
 
           <mat-button-toggle-group             
             (change)="onChange($event, row)"
-            value="?">
+            value="?" vertical="true">
             <mat-button-toggle class="my-toggle-button" value="Yes">Yes</mat-button-toggle>
             <mat-button-toggle class="my-toggle-button" value="?">?</mat-button-toggle>         
             <mat-button-toggle class="my-toggle-button" value="No">No</mat-button-toggle>
