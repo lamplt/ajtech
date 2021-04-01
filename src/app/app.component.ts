@@ -42,11 +42,10 @@ export class AppComponent implements OnInit{
     );
   }
 
-  processRow(row: Event, src:string){
-   
+  processRow(row: Event, src:string){   
     row.checked = true;
     row.value = "Yes";
-    row.seizure = true;
+    //row.seizure = true;
     this.openImage(src);
   }
 
@@ -82,14 +81,14 @@ export class AppComponent implements OnInit{
 
   
   removeNonSeizure(){
-   for(let row of this.agcsData.Events){
-      if(row.checked && !row.seizure){
-      const index = this.agcsData.Events.indexOf(row, 0);
-      if (index > -1) {
-        this.agcsData.Events.splice(index, 1);
-      }
-     }
-   }
+    console.log(this.agcsData.Events);
+
+    let filteredArray: Event[] = [];
+    filteredArray = this.agcsData.Events.filter(function(row, index, arr){
+      return !row.checked || row.seizure;
+    });
+    this.agcsData.Events = filteredArray.slice();
+    
    this.dataSource = new MatTableDataSource<Event>(this.agcsData.Events);
   }
 
