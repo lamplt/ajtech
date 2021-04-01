@@ -23,7 +23,7 @@
         <th class="w-300" mat-header-cell *matHeaderCellDef> Potential Events </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
           <!-- (click)="processRow(row,row.Image_40_s)" -->
-          <a >
+         
             <img
               width="900"
               height="320"
@@ -32,9 +32,10 @@
               usemap="#imgMap" 
             />
             <map name="imgMap">
-              <a (click)="processRow(row,row.Image_40_s)"> 
-                <area shape="rect" coords="0,0,100,320" alt="40s" href="#"> 
-              </a>
+              <!-- <a (click)="processRow(row,row.Image_40_s)">  -->
+                <area shape="rect" coords="0,0,100,320" alt="40s" href="#" 
+                (click)="processRow(row,row.Image_40_s)"> 
+              <!-- </a> -->
               <a (click)="processRow(row,row.Image_10_s_1)"> 
                 <area shape="rect" coords="100,0,300,320" alt="10s1" href="#"> 
               </a>
@@ -49,7 +50,7 @@
               </a>
               <!-- {{row.Image_10_s_4}}  This is printing correctly-->
             </map>
-          </a> 
+         
                  
         </td>
       </ng-container>
