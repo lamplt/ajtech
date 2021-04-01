@@ -29,23 +29,23 @@
               height="320"
               alt=""
               [src]="row.Image_40_s"
-              usemap="#row.workmap" 
+              usemap="#imgMap" 
             />
-            <map name="row.workmap">
+            <map name="imgMap">
               <a (click)="processRow(row,row.Image_40_s)"> 
-                <area shape="rect" coords="0,0,100,320" alt="Computer" href="#"> 
+                <area shape="rect" coords="0,0,100,320" alt="40s" href="#"> 
               </a>
               <a (click)="processRow(row,row.Image_10_s_1)"> 
-                <area shape="rect" coords="100,0,300,320" alt="Computer" href="#"> 
+                <area shape="rect" coords="100,0,300,320" alt="10s1" href="#"> 
               </a>
               <a (click)="processRow(row,row.Image_10_s_2)"> 
-                <area shape="rect" coords="300,0,500,320" alt="Computer" href="#"> 
+                <area shape="rect" coords="300,0,500,320" alt="10s2" href="#"> 
               </a>
               <a (click)="processRow(row,row.Image_10_s_3)"> 
-                <area shape="rect" coords="500,0,700,320" alt="Computer" href="#"> 
+                <area shape="rect" coords="500,0,700,320" alt="10s3" href="#"> 
               </a>
               <a (click)="processRow(row,row.Image_10_s_4)">
-                <area shape="rect" coords="700,0,900,320" alt="Computer" href="#"> 
+                <area shape="rect" coords="700,0,900,320" alt="10s4" href="#"> 
               </a>
               <!-- {{row.Image_10_s_4}}  This is printing correctly-->
             </map>
