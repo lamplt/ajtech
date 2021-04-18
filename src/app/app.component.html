@@ -23,35 +23,37 @@
         <th class="w-300" mat-header-cell *matHeaderCellDef> Potential Events </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
           <!-- (click)="processRow(row,row.Image_40_s)" -->
-         
-            <img
-              width="900"
-              height="320"
-              alt=""
-              [src]="row.Image_40_s"
-              usemap="#imgMap" 
-            />
-            <map name="imgMap">
-              <!-- <a (click)="processRow(row,row.Image_40_s)">  -->
-                <area shape="rect" coords="0,0,100,320" alt="40s" href="#" 
-                (click)="processRow(row,row.Image_40_s)"> 
-              <!-- </a> -->
-              <a (click)="processRow(row,row.Image_10_s_1)"> 
-                <area shape="rect" coords="100,0,300,320" alt="10s1" href="#"> 
-              </a>
-              <a (click)="processRow(row,row.Image_10_s_2)"> 
-                <area shape="rect" coords="300,0,500,320" alt="10s2" href="#"> 
-              </a>
-              <a (click)="processRow(row,row.Image_10_s_3)"> 
-                <area shape="rect" coords="500,0,700,320" alt="10s3" href="#"> 
-              </a>
-              <a (click)="processRow(row,row.Image_10_s_4)">
-                <area shape="rect" coords="700,0,900,320" alt="10s4" href="#"> 
-              </a>
-              <!-- {{row.Image_10_s_4}}  This is printing correctly-->
-            </map>
-         
-                 
+          <img
+            width="900"
+            height="320"
+            alt=""
+            [src]="row.Image_40_s"              
+          />
+
+          <div fxLayout="row" fxLayoutAlign="space-between center" >
+            <div fxFlex="12"  ></div>
+            <div fxFlex="19.5" style=" text-align: center;" >
+              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_1)">
+                <mat-icon>zoom_in</mat-icon>  
+              </button>
+            </div> 
+            <div fxFlex="19.5" style="text-align: center;" >
+              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_2)">
+                <mat-icon>zoom_in</mat-icon>
+              </button>
+            </div> 
+            <div fxFlex="19.5" style="text-align: center;">
+              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_3)">
+                <mat-icon>zoom_in</mat-icon>
+              </button>
+            </div> 
+            <div fxFlex="19.5" style="text-align: center;">
+              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_4)">
+                <mat-icon>zoom_in</mat-icon>
+              </button>
+            </div>
+            <div fxFlex="10" ></div>
+          </div>         
         </td>
       </ng-container>
      

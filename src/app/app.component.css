@@ -143,5 +143,12 @@
     min-height: unset!important;
   }
 
+  button.small {
+    font-size: 4px;
+    line-height: 4px;
+    width: 160px;
+    height: 16px;
+  }
+
   
   
