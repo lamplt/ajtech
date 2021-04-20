@@ -22,34 +22,35 @@
       <ng-container matColumnDef="Image_40_s">
         <th class="w-300" mat-header-cell *matHeaderCellDef> Potential Events </th>
         <td class="zoom" mat-cell *matCellDef="let row"> 
-          <!-- (click)="processRow(row,row.Image_40_s)" -->
+          
           <img
             width="900"
             height="320"
             alt=""
-            [src]="row.Image_40_s"              
+            [src]="row.Image_40_s" 
+            (click)="processRow(row,row.Image_40_s)"             
           />
 
           <div fxLayout="row" fxLayoutAlign="space-between center" >
             <div fxFlex="12"  ></div>
-            <div fxFlex="19.5" style=" text-align: center;" >
-              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_1)">
-                <mat-icon>zoom_in</mat-icon>  
+            <div fxFlex="19.5" style="text-align: center;" >
+              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_1)">
+               
               </button>
             </div> 
             <div fxFlex="19.5" style="text-align: center;" >
-              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_2)">
-                <mat-icon>zoom_in</mat-icon>
+              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_2)">
+                
               </button>
             </div> 
             <div fxFlex="19.5" style="text-align: center;">
-              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_3)">
-                <mat-icon>zoom_in</mat-icon>
+              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_3)">
+               
               </button>
             </div> 
             <div fxFlex="19.5" style="text-align: center;">
-              <button class="small" mat-raised-button color="primary" (click)="processRow(row,row.Image_10_s_4)">
-                <mat-icon>zoom_in</mat-icon>
+              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_4)">
+                
               </button>
             </div>
             <div fxFlex="10" ></div>

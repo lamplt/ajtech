@@ -143,11 +143,11 @@
     min-height: unset!important;
   }
 
-  button.small {
+  button.fill {
     font-size: 4px;
     line-height: 4px;
-    width: 160px;
-    height: 16px;
+    width: 175px;
+    height: 30px;
   }
 
   
