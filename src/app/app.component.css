@@ -34,10 +34,6 @@
     align-items: center;
   }
 
-  
-  table {
-    width: 100%;
-  }
 
   .w-50{
     width: 50px;
@@ -104,7 +100,8 @@
   }
 
   .mat-toolbar {
-    background:#ebebeb;
+    position: sticky;
+    background: #1976d2;
     color: #fff;
   }
 
@@ -150,8 +147,14 @@
     height: 30px;
   }
 
-  .scroll-container {
+  .tableStyle{
+    max-height: 500px;
     overflow: auto;
+  }
+
+  mat-header-cell, mat-header-row{
+    top:0;
+    background: white;
   }
   
   
