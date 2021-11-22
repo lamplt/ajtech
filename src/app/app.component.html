@@ -12,11 +12,11 @@
   <div class="mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" class="tableStyle">
       <ng-container matColumnDef="time">
-        <mat-header-cell   *matHeaderCellDef> </mat-header-cell>
-        <mat-cell  *matCellDef="let row"> {{row.time}} s</mat-cell>
+        <mat-header-cell class="pc-5"  *matHeaderCellDef> </mat-header-cell>
+        <mat-cell class="pc-5" *matCellDef="let row"> {{row.time}} s</mat-cell>
       </ng-container> 
       <ng-container matColumnDef="Image_40_s">
-        <mat-header-cell *matHeaderCellDef> Potential Events </mat-header-cell>
+        <mat-header-cell class="zoom" *matHeaderCellDef> Potential Events </mat-header-cell>
         <mat-cell class="zoom"  *matCellDef="let row">           
           
           <div fxLayout="column">
@@ -58,8 +58,8 @@
       </ng-container>
 
       <ng-container matColumnDef="action">
-        <mat-header-cell *matHeaderCellDef>  </mat-header-cell>
-        <mat-cell *matCellDef="let row"> 
+        <mat-header-cell class="pc-5" *matHeaderCellDef>  </mat-header-cell>
+        <mat-cell class="pc-5" *matCellDef="let row"> 
 
           <mat-button-toggle-group             
             (change)="onChange($event, row)"

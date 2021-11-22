@@ -16,14 +16,14 @@
     margin: 0 16px;
   }
 
-  .toolbar #twitter-logo {
+  /* .toolbar #twitter-logo {
     height: 40px;
     margin: 0 16px;
   }
 
   .toolbar #twitter-logo:hover {
     opacity: 0.8;
-  }
+  } */
 
   .content {
     display: flex;
@@ -34,35 +34,15 @@
     align-items: center;
   }
 
-
-  .w-50{
-    width: 50px;
+  .pc-5{
+    max-width: 5%; 
+    min-width: 5%;
   }
-
-  .w-100{
-      width: 100px;
-  }
-
-  .w-150{
-    width: 150px;
-    
-  }
-
-  .w-175{
-    width: 175px;
-  
-  }
-  .w-200{
-    width: 200px;
-  
-  }
-  .w-300{
-    width: 300px;
-  
-  } 
   
   .zoom{
     cursor: zoom-in;
+    max-width: 85%; 
+    min-width: 85%;
   }
 
   .left{
@@ -156,5 +136,8 @@
     top:0;
     background: white;
   }
+
+ 
+
   
   
