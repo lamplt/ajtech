@@ -12,45 +12,48 @@
   <div class="mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" class="tableStyle">
       <ng-container matColumnDef="time">
-        <mat-header-cell class="w-50"  *matHeaderCellDef> </mat-header-cell>
-        <mat-cell class="w-50" *matCellDef="let row"> {{row.time}} s</mat-cell>
+        <mat-header-cell   *matHeaderCellDef> </mat-header-cell>
+        <mat-cell  *matCellDef="let row"> {{row.time}} s</mat-cell>
       </ng-container> 
       <ng-container matColumnDef="Image_40_s">
-        <mat-header-cell class="w-300"  *matHeaderCellDef> Potential Events </mat-header-cell>
-        <mat-cell class="zoom"  *matCellDef="let row"> 
+        <mat-header-cell *matHeaderCellDef> Potential Events </mat-header-cell>
+        <mat-cell class="zoom"  *matCellDef="let row">           
           
-          <img
-            width="900"
-            height="320"
-            alt=""
-            [src]="row.Image_40_s" 
-            (click)="processRow(row,row.Image_40_s)"             
-          />
-
-          <div fxLayout="row" fxLayoutAlign="space-between center" >
-            <div fxFlex="12"  ></div>
-            <div fxFlex="19.5" style="text-align: center;" >
-              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_1)">
-               
-              </button>
-            </div> 
-            <div fxFlex="19.5" style="text-align: center;" >
-              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_2)">
-                
-              </button>
-            </div> 
-            <div fxFlex="19.5" style="text-align: center;">
-              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_3)">
-               
-              </button>
-            </div> 
-            <div fxFlex="19.5" style="text-align: center;">
-              <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_4)">
-                
-              </button>
+          <div fxLayout="column">
+            <div fxFlex>
+              <img
+                width="900"
+                height="320"
+                alt=""
+                [src]="row.Image_40_s" 
+                (click)="processRow(row,row.Image_40_s)"             
+              />
             </div>
-            <div fxFlex="10" ></div>
-          </div>         
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxFlex="12"  ></div>
+              <div fxFlex="19.5" style="text-align: center;" >
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_1)">
+                
+                </button>
+              </div> 
+              <div fxFlex="19.5" style="text-align: center;" >
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_2)">
+                  
+                </button>
+              </div> 
+              <div fxFlex="19.5" style="text-align: center;">
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_3)">
+                
+                </button>
+              </div> 
+              <div fxFlex="19.5" style="text-align: center;">
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_4)">
+                  
+                </button>
+              </div>
+              <div fxFlex="10" ></div>
+            </div>  
+          </div>       
         </mat-cell>
       </ng-container>
 
