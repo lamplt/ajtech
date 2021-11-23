@@ -19,6 +19,9 @@ export class AppComponent implements OnInit{
   
   dataSource = new MatTableDataSource<Event>();
   agcsData : AGCSData = null;
+  potential: number = 0;
+  awaiting: number = 0;
+  confirmed: number = 0;
   
 
   constructor (
@@ -34,12 +37,24 @@ export class AppComponent implements OnInit{
         //console.log(JSON.stringify(this.agcsData));
        
         this.dataSource = new MatTableDataSource<Event>(this.agcsData.Events);
+        this._setCheckedStatus();
+        this._updateMetrics();
         //console.log("ARRAY: "+JSON.stringify(this.dataSource));
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);
       }
     );
+  }
+  private _setCheckedStatus() {
+    this.agcsData.Events.forEach(e=>e.checked=false);
+  }
+
+
+  private _updateMetrics() {
+    this.potential = this.agcsData.Events.length;
+    this.awaiting = this.agcsData.Events.filter(e=>!e.checked).length;
+    this.confirmed = this.agcsData.Events.filter(e=>e.value==='Yes').length;
   }
 
   processRow(row: Event, src:string){   
@@ -77,6 +92,7 @@ export class AppComponent implements OnInit{
       row.checked = false;
       //row.seizure = true; //don't delete
     }
+    this._updateMetrics();
   }
 
   
@@ -87,9 +103,9 @@ export class AppComponent implements OnInit{
     filteredArray = this.agcsData.Events.filter(function(row, index, arr){
       return !row.checked || row.seizure;
     });
-    this.agcsData.Events = filteredArray.slice();
-    
-   this.dataSource = new MatTableDataSource<Event>(this.agcsData.Events);
+    this.agcsData.Events = filteredArray.slice();    
+    this.dataSource = new MatTableDataSource<Event>(this.agcsData.Events);
+    this._updateMetrics();
   }
 
 }
