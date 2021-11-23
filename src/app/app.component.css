@@ -137,6 +137,17 @@
     background: white;
   }
 
+  .btbar{
+    height: 100px;
+  }
+
+  .mat-card {
+    background:  #fff;
+    color:#424242;
+    height: 80px;
+    width: 50px;
+  }
+
  
 
   

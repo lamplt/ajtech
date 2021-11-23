@@ -75,17 +75,42 @@
       <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <span class="example-spacer"></span>
-          <button mat-raised-button color="primary" (click)=removeNonSeizure()>Update</button> 
+    <mat-toolbar >
+      <mat-toolbar-row class="btbar" fxLayout="row" fxLayoutGap="20px"
+        fxLayoutAlign="space-between center">        
+        <mat-card fxFlex>
+          <mat-card-title>10</mat-card-title>
+          <mat-card-content>Potential</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>3</mat-card-title>
+          <mat-card-content>Awaiting</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>2</mat-card-title>
+          <mat-card-content>Confirmed Seizures</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>{{agcsData?.Footer.Total_review_percent.toFixed(2)}} </mat-card-title>
+          <mat-card-content>% Record Requiring Review</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>{{agcsData?.Footer.EEG_total_time_seconds}} s </mat-card-title>
+          <mat-card-content>Takens Detection Time</mat-card-content>
+        </mat-card>
+    
+        <!-- <span class="example-spacer"></span> -->
+        <button fxFlex mat-raised-button color="primary" (click)=removeNonSeizure()>
+          Update
+        </button> 
+       
       </mat-toolbar-row>
     </mat-toolbar>
    
   </div>
 </div>
 
-<!--Footer Section-->
+<!--Footer Section
 <div class="text-inside-grid" >
   <mat-card class="text-inside-grid">      
     <mat-card-subtitle>Summary of the data </mat-card-subtitle>
@@ -115,7 +140,7 @@
     </mat-grid-list>
   </mat-card>
   
-</div>
+</div> -->
 
 
 
