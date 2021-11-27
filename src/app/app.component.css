@@ -80,7 +80,6 @@
   }
 
   .mat-toolbar {
-    position: sticky;
     background: #1976d2;
     color: #fff;
   }
@@ -103,8 +102,7 @@
   }
   
   .mat-button-toggle-checked {
-      border: 1px rgba(0,0,0,0) solid !important;
-      
+      border: 1px rgba(0,0,0,0) solid !important;      
       background-color:#7b1fa2 !important;
   }
   
@@ -138,15 +136,35 @@
   }
 
   .btbar{
-    height: 100px;
+    position: sticky;
+    height: 85px;
   }
 
+
   .mat-card {
-    background:  #fff;
+    background:#fff;
     color:#424242;
-    height: 80px;
+    height: 72px;
     width: 50px;
   }
+
+  .mat-card-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+  .mat-card-content {
+    font-size: 11px;
+    max-width: 150px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mat-card-title {
+    margin-bottom: 1px;
+  } 
 
  
 
