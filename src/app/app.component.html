@@ -1,14 +1,35 @@
 <mat-toolbar>
-  <mat-toolbar-row>
-    <img
+  <mat-toolbar-row fxLayout="row" fxLayoutAlign="space-between center">
+    <img fxFlex="25"
       width="300"
       alt="AJT"
       src="assets/AJ-Technologies-logo-4C-smallest-2.png"
     />
+    <div fxFlex="70"></div>
+    <button fxFlex="5" mat-icon-button [matMenuTriggerFor]="menu" fxShow="true">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <a mat-menu-item>
+        Events
+      </a>
+      <a mat-menu-item>
+        Files
+      </a>
+      <!-- <a mat-menu-item 
+        [routerLink] = "['substitutes']" routerLinkActive="active-list-item">
+        Substitutes
+      </a>
+      <a mat-menu-item 
+        [routerLink] = "['teachers']" routerLinkActive="active-list-item">
+        Teachers
+      </a>     -->
+    </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
 
 <div role="main">
+  <mat-icon>text_snippet</mat-icon>
   <div class="mat-elevation-z8">
     <mat-table #table [dataSource]="dataSource" class="tableStyle">
       <ng-container matColumnDef="time">
