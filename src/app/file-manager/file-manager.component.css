@@ -1,0 +1,30 @@
+.mat-table {
+    background:#f5f5f5;
+}
+.mat-cell {
+    color:  rgba(0,0,0,.87);
+}
+
+.mat-header-cell {
+    color:  rgba(0,0,0,.87);
+}
+
+.mat-card {
+    background:#fff;
+    color:#424242;
+}
+
+.tableStyle{
+    width:50%;
+    flex:auto
+}
+
+.pc-5{
+    max-width: 5%; 
+    min-width: 5%;
+}
+
+.pc-15{
+    max-width: 15%; 
+    min-width: 15%;
+}

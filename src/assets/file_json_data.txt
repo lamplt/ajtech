@@ -1,0 +1,10 @@
+{
+    "fileList":
+    [
+        { "name": "n_1054_FA00101N.eeg" },
+        { "name": "n_2054_FA00101N.eeg" },
+        { "name": "n_3054_FA00101N.eeg" },
+        { "name": "n_4054_FA00101N.eeg" },
+        { "name": "n_5054_FA00101N.eeg" }
+    ]
+}

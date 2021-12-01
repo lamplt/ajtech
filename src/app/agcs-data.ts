@@ -27,3 +27,11 @@ export class Footer{
     EEG_investigate_time_seconds: number;
     Total_review_percent: number
 }
+
+export class EEGFileList{
+    fileList: EEGFile[];
+}
+
+export class EEGFile{
+    name: string;
+}
