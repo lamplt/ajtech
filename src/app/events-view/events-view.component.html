@@ -1,0 +1,101 @@
+<div role="main">
+  <mat-icon>text_snippet</mat-icon>
+  <div class="mat-elevation-z8">
+    <mat-table #table [dataSource]="dataSource" class="tableStyle">
+      <ng-container matColumnDef="time">
+        <mat-header-cell class="pc-5"  *matHeaderCellDef> </mat-header-cell>
+        <mat-cell class="pc-5" *matCellDef="let row"> {{row.time}} s</mat-cell>
+      </ng-container> 
+      <ng-container matColumnDef="Image_40_s">
+        <mat-header-cell class="zoom" *matHeaderCellDef> Potential Events </mat-header-cell>
+        <mat-cell class="zoom"  *matCellDef="let row">           
+          
+          <div fxLayout="column">
+            <div fxFlex>
+              <img
+                width="900"
+                height="320"
+                alt=""
+                [src]="row.Image_40_s" 
+                (click)="processRow(row,row.Image_40_s)"             
+              />
+            </div>
+            <div fxLayout="row" fxLayoutAlign="space-between center">
+              <div fxFlex="12"  ></div>
+              <div fxFlex="19.5" style="text-align: center;" >
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_1)">
+                
+                </button>
+              </div> 
+              <div fxFlex="19.5" style="text-align: center;" >
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_2)">
+                  
+                </button>
+              </div> 
+              <div fxFlex="19.5" style="text-align: center;">
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_3)">
+                
+                </button>
+              </div> 
+              <div fxFlex="19.5" style="text-align: center;">
+                <button class="fill" mat-button (click)="processRow(row,row.Image_10_s_4)">
+                  
+                </button>
+              </div>
+              <div fxFlex="10" ></div>
+            </div>  
+          </div>       
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <mat-header-cell class="pc-5" *matHeaderCellDef>  </mat-header-cell>
+        <mat-cell class="pc-5" *matCellDef="let row"> 
+
+          <mat-button-toggle-group             
+            (change)="onChange($event, row)"
+            value="?" vertical="true">
+            <mat-button-toggle class="my-toggle-button" value="Yes">Yes</mat-button-toggle>
+            <mat-button-toggle class="my-toggle-button" value="?">?</mat-button-toggle>         
+            <mat-button-toggle class="my-toggle-button" value="No">No</mat-button-toggle>
+          </mat-button-toggle-group>
+          
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-toolbar >
+      <mat-toolbar-row class="btbar" fxLayout="row wrap" fxLayoutGap="20px"
+         fxLayoutAlign="space-between center">        
+        <mat-card fxFlex>
+          <mat-card-title>{{potential}}</mat-card-title>
+          <mat-card-content>Potential</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>{{awaiting}}</mat-card-title>
+          <mat-card-content>Awaiting</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>{{confirmed}}</mat-card-title>
+          <mat-card-content>Confirmed Seizures</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>{{agcsData?.Footer.Total_review_percent.toFixed(2)}} </mat-card-title>
+          <mat-card-content>% Record Requiring Review</mat-card-content>
+        </mat-card>
+        <mat-card fxFlex>
+          <mat-card-title>{{agcsData?.Footer.EEG_total_time_seconds}} s </mat-card-title>
+          <mat-card-content>Takens Detection Time</mat-card-content>
+        </mat-card>
+    
+     
+        <button fxFlex mat-raised-button color="primary" (click)=removeNonSeizure()>
+          Update
+        </button> 
+       
+      </mat-toolbar-row>
+    </mat-toolbar>   
+  </div>
+</div>

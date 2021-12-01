@@ -17,12 +17,16 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatButtonModule } from '@angular/material/button'; 
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
+import { FileManagerComponent } from './file-manager/file-manager.component';
+import { EventsViewComponent } from './events-view/events-view.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageViewComponent
+    ImageViewComponent,
+    FileManagerComponent,
+    EventsViewComponent
   ],
   imports: [
     BrowserModule,

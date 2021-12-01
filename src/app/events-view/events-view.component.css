@@ -1,0 +1,139 @@
+.toolbar img {
+    margin: 0 16px;
+}
+
+.content {
+    display: flex;
+    margin: 82px auto 12px;
+    padding: 0 16px;
+
+    flex-direction: column;
+    align-items: center;
+}
+
+.pc-5{
+    max-width: 5%; 
+    min-width: 5%;
+}
+
+.zoom{
+    cursor: zoom-in;
+    max-width: 85%; 
+    min-width: 85%;
+}
+
+.left{
+    align-items: left;
+    text-align: left;
+}
+
+.text-inside-grid {
+    text-align: left;
+}
+
+.mat-grid-tile {
+    border: 1px solid rgb(100, 98, 98);
+    text-align: left;
+}
+
+.mat-table {
+    background:#f5f5f5;
+}
+.mat-cell {
+    color:  rgba(0,0,0,.87);
+}
+
+.mat-header-cell {
+    color:  rgba(0,0,0,.87);
+}
+
+.right {
+    text-align: right;
+}
+
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.mat-toolbar {
+    background: #1976d2;
+    color: #fff;
+}
+
+mat-button-toggle {
+    border: 1px rgba(0,0,0,0) solid !important;
+    margin-top: 5px !important;
+    padding: 0 5px !important;
+    z-index: 3 !important;
+}
+
+mat-button-toggle:hover {
+    border: 1px rgba(0,0,0,0) solid !important;
+    background-color:#7b1fa2 !important;
+    
+}
+
+.mat-button-toggle-checked {
+    border: 1px rgba(0,0,0,0) solid !important;      
+    background-color:#7b1fa2 !important;
+}
+
+.mat-button-toggle-input {
+    background-color: none !important;
+    padding-left: 32px !important;
+} 
+
+.my-toggle-button{
+    width: 50px!important;
+    height: 50px!important;
+    min-width: unset!important;
+    min-height: unset!important;
+}
+
+button.fill {
+    font-size: 4px;
+    line-height: 4px;
+    width: 175px;
+    height: 30px;
+}
+
+.tableStyle{
+    max-height: 500px;
+    overflow: auto;
+}
+
+mat-header-cell, mat-header-row{
+    top:0;
+    background: white;
+}
+
+.btbar{
+    position: sticky;
+    height: 85px;
+}
+
+
+.mat-card {
+    background:#fff;
+    color:#424242;
+    height: 72px;
+    width: 50px;
+}
+
+.mat-card-title {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.mat-card-content {
+    font-size: 11px;
+    max-width: 150px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.mat-card-title {
+    margin-bottom: 1px;
+} 
