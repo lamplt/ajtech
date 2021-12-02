@@ -34,4 +34,5 @@ export class EEGFileList{
 
 export class EEGFile{
     name: string;
+    processed:boolean;
 }
