@@ -34,10 +34,10 @@ export class FileManagerComponent implements OnInit {
   }
 
   public processFile(file:EEGFile){
-    file.processing = true; 
+    file.processing = true;
     console.log('Sending the file:'+file.name+' to API server.... '); 
     //this.httpService.get('https://fmsub-appointment-dev.azurewebsites.net/api/appointments/'+file.name).subscribe(
-    this.httpService.get('https://fmsub-appointment-dev.azurewebsites.net/api/appointments/a9dab091-9ae8-41d1-8f44-393b0efaea29').subscribe(
+    this.httpService.get('http://10.0.1.101:5002/filename?file='+file.name).subscribe(
       data => {       
         console.log(data);
         file.processed = true;

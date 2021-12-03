@@ -13,7 +13,7 @@
       </mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="action">
+   <ng-container matColumnDef="action">
       <mat-header-cell  *matHeaderCellDef>  </mat-header-cell>
       <mat-cell class="pc-15" *matCellDef="let row"> 
         <button *ngIf="!row.processing" mat-mini-fab color="primary" (click)=processFile(row)>
@@ -23,6 +23,7 @@
           <p  *ngIf="row.processing && row.processed" style="color:green"> Processed </p>
       </mat-cell>
     </ng-container>
+   
 
     <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>

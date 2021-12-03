@@ -1,10 +1,13 @@
 {
     "fileList":
     [
-        { "name": "n_1054_FA00101N.eeg" },
-        { "name": "n_2054_FA00101N.eeg" },
-        { "name": "n_3054_FA00101N.eeg" },
-        { "name": "n_4054_FA00101N.eeg" },
-        { "name": "n_5054_FA00101N.eeg" }
+        { "name": "FA00101N.edf" },
+	{ "name": "chb05_22.edf" },
+        { "name": "chb12_29.edf" },
+        { "name": "chb12_38.edf" },
+        { "name": "chb15_54.edf" },
+        { "name": "chb20_15.edf" },
+        { "name": "chb24_01.edf" },
+        { "name": "new_cad.edf" }
     ]
 }
