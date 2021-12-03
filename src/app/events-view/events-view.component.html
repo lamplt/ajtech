@@ -1,12 +1,12 @@
-<div role="main">
+<div role="main">  
   <div class="mat-elevation-z8">
-    <mat-table #table [dataSource]="dataSource" class="tableStyle">
+    <mat-table *ngIf="agcsData" #table [dataSource]="dataSource" class="tableStyle">
       <ng-container matColumnDef="time">
         <mat-header-cell class="pc-5"  *matHeaderCellDef> </mat-header-cell>
         <mat-cell class="pc-5" *matCellDef="let row"> {{row.time}} s</mat-cell>
       </ng-container> 
       <ng-container matColumnDef="Image_40_s">
-        <mat-header-cell class="zoom" *matHeaderCellDef> Potential Events </mat-header-cell>
+        <mat-header-cell class="zoom" *matHeaderCellDef> Potential Events for {{agcsData.Header.EEG_filename}}</mat-header-cell>
         <mat-cell class="zoom"  *matCellDef="let row">           
           
           <div fxLayout="column">
@@ -61,7 +61,6 @@
           
         </mat-cell>
       </ng-container>
-
       <mat-header-row *matHeaderRowDef="displayedColumns;"></mat-header-row>
       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
     </mat-table>
